@@ -6,25 +6,24 @@ class User < ApplicationRecord
 
   has_many :questions
 
-  validates :username, presence: true, uniqueness: true, length: { maximum: 40 }, format: { with: /[0-9a-z_]/i }
+  validates :username, presence: true, uniqueness: true, length: { maximum: 40 }, format: { with: /\A[0-9a-z_]+\z/i }
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@(?:[-a-z0-9]+\.)+[a-z]{2,}\z/i}
 
   # Второй способ валидации почты пользователя с помощью gem email_address
   # https://github.com/afair/email_address
   # validates_with EmailAddress::ActiveRecordValidator, field: :email
 
-  before_validation(on: :create) do
-    self.username = username.downcase if attribute_present?("username")
-  end
-
   attr_accessor :password
 
-  validates_presence_of :password, on: create
+  validates_presence_of :password, on: :create
   validates_confirmation_of :password
 
+  before_validation :check_username
   before_save :encrypt_password
 
-  private
+  def check_username
+    self.username = username.downcase if username.present?
+  end
 
   def encrypt_password
     if password.present?
