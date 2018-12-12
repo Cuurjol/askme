@@ -3,7 +3,7 @@ module ApplicationHelper
     if user.avatar_url.present?
       user.avatar_url
     else
-      asset_path 'avatar.png'
+      asset_path('avatar.png')
     end
   end
 
@@ -17,5 +17,9 @@ module ApplicationHelper
     return krokodil if remainder == 1
     return krokodila if remainder >= 2 && remainder <= 4
     return krokodilov if (remainder >= 5 && remainder <= 9) || remainder.zero?
+  end
+
+  def fa_icon(icon_class)
+    content_tag('span', '', class: "fa fa-#{icon_class}")
   end
 end
