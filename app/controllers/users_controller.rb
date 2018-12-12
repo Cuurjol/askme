@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = [
       User.new(
+        id: 1,
         name: 'Nikolay',
         username: 'Killer',
         avatar_url: 'https://nameless-badlands-50980.herokuapp.com/frank-sinatra.jpg'
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
 
     @questions = [
       Question.new(text: 'Как дела?', created_at: Date.parse('27.03.2018')),
+      Question.new(text: 'В чем смысл жизни?', created_at: Date.parse('27.03.2018')),
       Question.new(text: 'В чем смысл жизни?', created_at: Date.parse('27.03.2018')),
       Question.new(text: 'В чем смысл жизни?', created_at: Date.parse('27.03.2018')),
       Question.new(text: 'В чем смысл жизни?', created_at: Date.parse('27.03.2018'))
