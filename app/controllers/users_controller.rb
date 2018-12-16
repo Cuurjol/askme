@@ -13,9 +13,10 @@ class UsersController < ApplicationController
 
   def create
     redirect_to(root_url, alert: 'Вы уже залогинены') if current_user.present?
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to(root_url, notice: 'Пользователь успешно зарегистрирован!')
     else
       render('new')
@@ -33,9 +34,19 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def destroy
+    if current_user == @user && @user.destroy
+      session[:user_id] = nil
+      redirect_to(root_url, notice: 'Вы успешно удалили свой аккаунт')
+    end
+  end
+
   def show
-    @questions = @user.questions.order(create_at: :desc)
+    @questions = @user.questions.order(created_at: :desc)
     @new_question = @user.questions.build
+    @questions_count = @questions.count
+    @answers_count = @questions.where.not(answer: nil).count
+    @unanswered_count = @questions_count - @answers_count
   end
 
   private
@@ -50,6 +61,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation,
-                                 :name, :username, :avatar_url)
+                                 :name, :username, :avatar_url, :theme_color)
   end
 end
