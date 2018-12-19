@@ -4,7 +4,7 @@ class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
 
-  has_many :questions, dependent: :destroy
+  has_many :questions, dependent: :delete_all
 
   validates :username, presence: true, uniqueness: true, length: { maximum: 40 }, format: { with: /\A[0-9a-z_]+\z/i }
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@(?:[-a-z0-9]+\.)+[a-z]{2,}\z/i}

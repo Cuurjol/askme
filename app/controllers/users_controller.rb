@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    Question.where(author_id: @user.id).update(author_id: nil)
     if @user.destroy
       session[:user_id] = nil
       redirect_to(root_url, notice: 'Вы успешно удалили свой аккаунт')
