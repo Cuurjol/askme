@@ -49,7 +49,6 @@
 
       <div class="form-action-buttons buffer-top">
         <%= f.submit 'Сохранить', class: 'button button-dark button-small' %>
-        <%#= f.submit 'Удалить пользователя', class: 'button button-dark button-small' %>
         <%= link_to 'Удалить аккаунт', user_path(current_user), method: :delete,
                     data: { confirm: "Вы уверены, что хотите удалить аккаунт?" },
                     class: 'button button-light button-small' %>

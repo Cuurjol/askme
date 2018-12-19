@@ -10,8 +10,18 @@
       </div>
     <% end %>
 
-    <div class="question-date">
-      <%= l(question.created_at, format: :short) %>
+    <div class="question-date-user-content">
+      <div class="question-date">
+        <%= l(question.created_at, format: :short) %>
+      </div>
+
+      <div class="question-user">
+        <% if question.author_id.nil? %>
+          Анонимный пользователь
+        <% else %>
+          <%= link_to "@#{question.author.username}", user_path(question.author) %>
+        <% end %>
+      </div>
     </div>
   </div>
 
@@ -21,7 +31,7 @@
     <div class="question-actions">
       <%= link_to fa_icon(edit_icon), edit_question_path(question) %>
       <%= link_to fa_icon('trash-o'), question_path(question),
-                  method: :delete, data: {confirm: 'Точно удалить вопрос?'} %>
+                  method: :delete, data: { confirm: 'Точно удалить вопрос?' } %>
     </div>
   <% end %>
 </div>

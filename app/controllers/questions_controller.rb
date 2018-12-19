@@ -10,10 +10,16 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
-    if @question.save
-      redirect_to(user_path(@question.user), notice: 'Вопрос задан')
+    if @question.user == current_user
+      redirect_to(root_url, notice: 'Вы не можете самому себе задать вопрос!')
     else
-      render :edit
+      @question.author_id = current_user.id if current_user.present?
+
+      if @question.save
+        redirect_to(user_path(@question.user), notice: 'Вопрос задан')
+      else
+        render :edit
+      end
     end
   end
 
@@ -44,8 +50,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    if current_user.present? &&
-        params[:question][:user_id].to_i == current_user.id
+    if current_user.present? && params[:question][:user_id].to_i == current_user.id
       params.require(:question).permit(:user_id, :text, :answer)
     else
       params.require(:question).permit(:user_id, :text)
