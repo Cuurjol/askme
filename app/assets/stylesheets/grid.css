@@ -38,11 +38,6 @@
   clear: both;
 }
 
-.column-4-4 {
-  float: left;
-  width: 100%;
-}
-
 .column-3-4 {
   float: left;
   width: 75%;
@@ -68,7 +63,6 @@
 }
 
 @media (max-width: 960px) {
-  .column-4-4
   .column-3-4,
   .column-1-4,
   .column-1-4-right,

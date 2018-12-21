@@ -9,17 +9,13 @@ class QuestionsController < ApplicationController
   # POST /questions
   def create
     @question = Question.new(question_params)
+    # @question.author = current_user.id
+    @question.author_id = current_user.id if current_user.present?
 
-    if @question.user == current_user
-      redirect_to(root_url, notice: 'Вы не можете самому себе задать вопрос!')
+    if @question.save
+      redirect_to(user_path(@question.user), notice: 'Вопрос задан')
     else
-      @question.author_id = current_user.id if current_user.present?
-
-      if @question.save
-        redirect_to(user_path(@question.user), notice: 'Вопрос задан')
-      else
-        render :edit
-      end
+      render :edit
     end
   end
 
