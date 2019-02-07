@@ -1,5 +1,35 @@
-# ASKME
+# Application ASKME
 
-ASKME is a clone of the website ask.fm
+ASKME is an application-clone of the famous service [ask.fm](https://ask.fm/). It allows you to ask questions to different users. Questions can be asked by registered users and anonymous. Please note that application has a ReCapthca anti-spam system from Google.
 
-The application was created of Ruby on Rails, version 5.2.1.
+
+## Annotation
+
+Application was created on `Ruby (v2.5.1)` and `Ruby on Rails (v5.2.2)`.
+
+## Installation and running
+
+Before running the application, you need to install all the necessary gems and prepare the database. In order to do this, you need to run the following comands in the terminal:
+
+```
+bundle install
+bundle exec rake db:migrate
+```
+
+Then, run the local server:
+
+```
+bundle exec rails s
+```
+
+After, go to the browser at `http://localhost:3000`.
+
+## Technical debt
+
+List of technical debts:
+* To add hashtags feature.
+* To delete the old version of ReCaptcha, to add the last version of Recapthca (`Invisible Recapthca`).
+
+## Author
+
+Kirill Ilyin, study project from [goodprogrammer.ru](https://goodprogrammer.ru/)
