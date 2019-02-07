@@ -26,7 +26,7 @@ After, go to the browser at `http://localhost:3000`.
 
 ## Technical debt
 
-List of technical debts:
+List of technical debts which will be added soon in the application:
 * To add hashtags feature.
 * To delete the old version of ReCaptcha, to add the last version of Recapthca (`Invisible Recapthca`).
 
