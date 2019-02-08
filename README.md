@@ -14,6 +14,12 @@ Before running the application, you need to install all the necessary gems and p
 bundle install
 bundle exec rake db:migrate
 ```
+And it is also necessary to set up variable environments for reCaptcha:
+
+```
+RECAPTCHA_ASKME_SITE_KEY
+RECAPTCHA_ASKME_SECRET_KEY
+```
 
 Then, run the local server:
 ```
