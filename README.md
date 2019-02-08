@@ -28,6 +28,10 @@ List of technical debts which will be added soon in the application:
 * To add hashtags feature.
 * To delete the old version of ReCaptcha, to add the last version of Recapthca (`Invisible Recapthca`).
 
+## Heroku deployment
+
+Study project is ready for deployment on the Heroku. The working version of the project can be viewed at [`Heroku website`](https://cuurjol-askme.herokuapp.com/).
+
 ## Author
 
 **Kirill Ilyin**, study project from [goodprogrammer.ru](https://goodprogrammer.ru/)
