@@ -5,7 +5,7 @@ ASKME is an application-clone of the famous service [ask.fm](https://ask.fm/). I
 
 ## Annotation
 
-Application was created on `Ruby (v2.5.1)` and `Ruby on Rails (v5.2.2)`. You can watch a list of all used gems in the `Gemfile`.
+Application was created on `Ruby (v2.5.1)` and `Ruby on Rails (v5.2.2)`.
 
 ## Installation and running
 
@@ -27,6 +27,8 @@ bundle exec rails s
 ```
 
 After, go to the browser at `http://localhost:3000`.
+
+You can watch a list of all used gems in the `Gemfile`.
 
 ## Technical debt
 
