@@ -5,19 +5,17 @@ ASKME is an application-clone of the famous service [ask.fm](https://ask.fm/). I
 
 ## Annotation
 
-Application was created on `Ruby (v2.5.1)` and `Ruby on Rails (v5.2.2)`.
+Application was created on `Ruby (v2.5.1)` and `Ruby on Rails (v5.2.2)`. You can watch a list of all used gems in the `Gemfile`.
 
 ## Installation and running
 
 Before running the application, you need to install all the necessary gems and prepare the database. In order to do this, you need to run the following comands in the terminal:
-
 ```
 bundle install
 bundle exec rake db:migrate
 ```
 
 Then, run the local server:
-
 ```
 bundle exec rails s
 ```
@@ -32,4 +30,4 @@ List of technical debts which will be added soon in the application:
 
 ## Author
 
-Kirill Ilyin, study project from [goodprogrammer.ru](https://goodprogrammer.ru/)
+**Kirill Ilyin**, study project from [goodprogrammer.ru](https://goodprogrammer.ru/)
