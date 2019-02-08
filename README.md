@@ -17,8 +17,8 @@ bundle exec rake db:migrate
 And it is also necessary to set up variable environments for reCaptcha:
 
 ```
-RECAPTCHA_ASKME_SITE_KEY
-RECAPTCHA_ASKME_SECRET_KEY
+RECAPTCHA_ASKME_PUBLIC_KEY
+RECAPTCHA_ASKME_PRIVATE_KEY
 ```
 
 Then, run the local server:
