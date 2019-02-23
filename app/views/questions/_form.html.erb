@@ -1,5 +1,5 @@
 <div class="form">
-  <%= form_for(@question) do |f| %>
+  <%= form_for(@question, html: { id: 'invisible-recaptcha-form' }) do |f| %>
     <% if @question.errors.any? %>
       <div class="form-errors">
         <ul>
@@ -28,10 +28,12 @@
       </div>
     <% end %>
 
-    <%= recaptcha_tags unless current_user.present? %>
-
     <div class="form-action buffer-both">
-      <%= f.submit 'Сохранить', class: 'button button-dark button-small' %>
+      <% if current_user.present? %>
+        <%= f.submit 'Сохранить', class: 'button button-dark button-small' %>
+      <% else %>
+        <%= invisible_recaptcha_tags callback: 'submitInvisibleRecaptchaForm', text: 'Сохранить', class: 'button button-dark button-small' %>
+      <% end %>
       или
       <%= link_to "вернуться", user_path(@question.user) %>
     </div>
