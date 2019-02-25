@@ -62,7 +62,6 @@
 
 <div class="column-3-4">
   <div class="user-questions buffer-both">
-    <h2 class="title-medium user-questions-counter"><%= @questions.size %> <%= inclination(@questions.size, 'вопрос', 'вопроса', 'вопросов') %></h2>
     <div class="questions-list">
       <% @questions.each do |question| %>
         <%= render partial: 'questions/question', object: question %>

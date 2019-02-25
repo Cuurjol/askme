@@ -18,5 +18,6 @@
  *= require layout
  *= require users
  *= require questions
+ *= require tooltip
  *= require_self
  */

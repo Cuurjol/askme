@@ -14,8 +14,7 @@
   margin-top: 10px;
 }
 
-.question-text,
-.question-answer {
+.question-text {
   margin-bottom: 10px;
 }
 
@@ -24,17 +23,31 @@
 }
 
 .question-answer {
+  margin-bottom: 15px;
 }
 
-.question-date,
-.question-user {
-  color: #a0a0a0;
-  font-size: 12px;
-}
-
-.question-date-user-content {
+.question-additional-information {
   display: flex;
   justify-content: space-between;
+  text-align: center;
+}
+
+/*.question-date-author-content {*/
+  /*text-align: center;*/
+/*}*/
+
+.question-author,
+.question-likes,
+.question-link {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.question-date {
+  color: #a0a0a0;
+  font-size: 12px;
+  display: inline-block;
+  margin-left: 5px;
 }
 
 .question-actions {

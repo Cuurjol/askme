@@ -25,3 +25,25 @@ $(function(){
 var submitInvisibleRecaptchaForm = function () {
     document.getElementById("invisible-recaptcha-form").submit();
 };
+
+$(document).ready(function() {
+    $('.helo').click(function () {
+        var link = document.getElementById("myInput");
+        var copyText = document.createElement('input'),
+            text = link.href;
+
+        document.body.appendChild(copyText);
+        copyText.value = text;
+        copyText.select();
+        document.execCommand('copy');
+        document.body.removeChild(copyText);
+
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "Copied: " + copyText.value;
+    });
+
+    $('.helo').mouseout(function () {
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "Copy to clipboard";
+    });
+})
