@@ -19,5 +19,6 @@
  *= require users
  *= require questions
  *= require tooltip
+ *= require hashtags
  *= require_self
  */

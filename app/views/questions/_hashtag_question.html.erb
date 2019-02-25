@@ -1,0 +1,6 @@
+<div class="hashtag-question">
+  Вопрос для &nbsp;
+  <%= link_to "@#{question.author.username}", user_path(question.user) %> &nbsp;
+  <%= link_to "(перейти к вопросу)", "#{user_path(question.user)}#question_#{question.id}" %>
+  <%= render partial: 'questions/question', object: question %>
+</div>

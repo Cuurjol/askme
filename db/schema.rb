@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_24_154525) do
+ActiveRecord::Schema.define(version: 2019_02_25_101439) do
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hashtags_questions", id: false, force: :cascade do |t|
+    t.integer "hashtag_id", null: false
+    t.integer "question_id", null: false
+    t.index ["hashtag_id", "question_id"], name: "index_hashtags_questions_on_hashtag_id_and_question_id"
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"

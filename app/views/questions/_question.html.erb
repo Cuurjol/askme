@@ -39,11 +39,12 @@
       <div class="question-link">
         <div class="tooltip">
           <button class="helo">
-            <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+            <span class="tooltiptext" id="myTooltip">Copy question link to clipboard</span>
             <%= fa_icon('external-link') %>
           </button>
         </div>
-        <%= link_to "##{question.id}", "#{user_path(question.user)}#question_#{question.id}", id: 'myInput' %>
+        <%#= link_to "##{question.id}", "#{user_path(question.user)}#question_#{question.id}", id: 'myInput' %>
+        <%= link_to "##{@questions.size - question_counter}", "#{user_path(question.user)}#question_#{question.id}", id: 'myInput' %>
       </div>
     </div>
   </div>

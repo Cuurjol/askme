@@ -1,0 +1,11 @@
+<hr>
+<div class="hashtag-header">
+  <h2 class="title-medium">Вопросы с тегом: #<%= @hashtag.name %></h2>
+</div>
+<div class="user-questions buffer-both">
+  <div class="questions-list">
+    <% @questions.each do |question| %>
+      <%= render partial: 'questions/hashtag_question', object: question %>
+    <% end %>
+  </div>
+</div>
