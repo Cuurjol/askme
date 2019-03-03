@@ -1,3 +1,7 @@
+.hashtags-list-item {
+  display: inline-block;
+}
+
 .hashtag-header {
   padding: 10px;
   background: #005a55;

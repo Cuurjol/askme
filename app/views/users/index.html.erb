@@ -11,3 +11,14 @@
     </div>
   <% end %>
 </div>
+
+<div class="content-wrapper buffer-both text-center">
+  <div class="buffer-both">
+    <h1 class="title-medium">Все хэштеги</h1>
+  </div>
+  <% @hashtags.each do |hashtag| %>
+    <div class="hashtags-list-item">
+      <%= link_to "##{hashtag.name}", hashtag_path(hashtag.name), class: 'hashtag-link' %>
+    </div>
+  <% end %>
+</div>

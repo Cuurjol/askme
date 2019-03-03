@@ -32,22 +32,16 @@
   text-align: center;
 }
 
-/*.question-date-author-content {*/
-  /*text-align: center;*/
-/*}*/
-
 .question-author,
 .question-likes,
 .question-link {
-  display: inline-block;
   font-size: 16px;
 }
 
 .question-date {
   color: #a0a0a0;
   font-size: 12px;
-  display: inline-block;
-  margin-left: 5px;
+  margin-top: 8px;
 }
 
 .question-actions {

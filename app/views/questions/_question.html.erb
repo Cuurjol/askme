@@ -1,14 +1,16 @@
 <% questions_block_id = "question_#{question.id}" %>
+<% question_number = @questions.size - question_counter %>
+<% question_link = request.original_url + "#question_#{question.id}" %>
 
 <div id="<%= questions_block_id %>" class="question">
   <div class="question-content">
     <div class="question-text text-lead">
-      <%= question.text %>
+      <%= render_with_hashtags(question.text) %>
     </div>
 
     <% if question.answer.present? %>
       <div class="question-answer text-lead">
-        <%= question.answer %>
+        <%= render_with_hashtags(question.answer) %>
       </div>
     <% end %>
 
@@ -16,20 +18,24 @@
       <div class="question-likes">
         <% pre_like = question.likes.find { |like| like.user_id == current_user.id} if current_user.present? %>
 
-        <% if pre_like %>
-          <%= link_to content_tag('span', '', class: "fa fa-heart"), question_like_path(question, pre_like), method: :delete %>
-        <% else %>
-          <%= link_to content_tag('span', '', class: "fa fa-heart-o"), question_likes_path(question), method: :post %>
-        <% end %>
+        <p><%= question.likes.count %> <%= (question.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
-        <i><%= question.likes.count %> <%= (question.likes.count) == 1 ? 'Like' : 'Likes'%></i>
+        <% if pre_like %>
+          <%= button_to question_like_path(question, pre_like), method: :delete do %>
+            Dislike <%= fa_icon('heart') %>
+          <% end %>
+        <% else %>
+          <%= button_to question_likes_path(question), method: :post do %>
+            Like <%= fa_icon('heart-o') %>
+          <% end %>
+        <% end %>
       </div>
       <div class="question-date-author-content">
         <div class="question-author">
           <% if question.author.present? %>
             <%= link_to_unless_current "@#{question.author.username}", user_path(question.author) %>
           <% else %>
-            <i>Гость сайта</i>
+            <p>Гость сайта</p>
           <% end %>
         </div>
         <div class="question-date">
@@ -37,14 +43,13 @@
         </div>
       </div>
       <div class="question-link">
+        Вопрос №<%= question_number %>
         <div class="tooltip">
-          <button class="helo">
-            <span class="tooltiptext" id="myTooltip">Copy question link to clipboard</span>
-            <%= fa_icon('external-link') %>
+          <button class="copy-question-link-to-clipboard" id="number-<%= question_number %>" data-link="<%= question_link %>">
+            <span class="tooltip-text" id="number-<%= question_number %>">Copy question link to clipboard</span>
+            Ссылка <%= fa_icon('external-link') %>
           </button>
         </div>
-        <%#= link_to "##{question.id}", "#{user_path(question.user)}#question_#{question.id}", id: 'myInput' %>
-        <%= link_to "##{@questions.size - question_counter}", "#{user_path(question.user)}#question_#{question.id}", id: 'myInput' %>
       </div>
     </div>
   </div>

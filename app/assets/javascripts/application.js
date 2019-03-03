@@ -20,17 +20,11 @@ $(function(){
         $('#ask-form').slideToggle(300);
         return false;
     });
-});
 
-var submitInvisibleRecaptchaForm = function () {
-    document.getElementById("invisible-recaptcha-form").submit();
-};
-
-$(document).ready(function() {
-    $('.helo').click(function () {
-        var link = document.getElementById("myInput");
-        var copyText = document.createElement('input'),
-            text = link.href;
+    $('.copy-question-link-to-clipboard').click(function () {
+        const id = $(this)[0].id
+        const copyText = document.createElement('input');
+        const text = $(this).data('link');
 
         document.body.appendChild(copyText);
         copyText.value = text;
@@ -38,12 +32,17 @@ $(document).ready(function() {
         document.execCommand('copy');
         document.body.removeChild(copyText);
 
-        var tooltip = document.getElementById("myTooltip");
-        tooltip.innerHTML = "Copied: " + copyText.value;
+        const tooltip = $("span#" + id);
+        tooltip[0].innerHTML = "Copied: " + copyText.value;
     });
 
-    $('.helo').mouseout(function () {
-        var tooltip = document.getElementById("myTooltip");
-        tooltip.innerHTML = "Copy to clipboard";
+    $('.copy-question-link-to-clipboard').mouseout(function () {
+        const id = $(this)[0].id;
+        const tooltip = $("span#" + id);
+        tooltip[0].innerHTML = "Copy question link to clipboard";
     });
-})
+});
+
+var submitInvisibleRecaptchaForm = function () {
+    $("#invisible-recaptcha-form").submit();
+};

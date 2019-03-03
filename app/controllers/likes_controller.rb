@@ -20,7 +20,7 @@ class LikesController < ApplicationController
       @question.likes.create(user_id: current_user.id)
     end
 
-    redirect_to user_path(user)
+    redirect_to(user_path(user))
   end
 
   # DELETE /likes/1
@@ -33,7 +33,7 @@ class LikesController < ApplicationController
     end
 
     user = User.find(@question.user.id)
-    redirect_to user_path(user)
+    redirect_to(user_path(user))
   end
 
   private

@@ -4,8 +4,6 @@
 </div>
 <div class="user-questions buffer-both">
   <div class="questions-list">
-    <% @questions.each do |question| %>
-      <%= render partial: 'questions/hashtag_question', object: question %>
-    <% end %>
+    <%= render partial: 'questions/hashtag_question', locals: { questions: @questions } %>
   </div>
 </div>

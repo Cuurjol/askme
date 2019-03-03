@@ -1,6 +1,12 @@
 <div class="hashtag-question">
-  Вопрос для &nbsp;
-  <%= link_to "@#{question.author.username}", user_path(question.user) %> &nbsp;
-  <%= link_to "(перейти к вопросу)", "#{user_path(question.user)}#question_#{question.id}" %>
-  <%= render partial: 'questions/question', object: question %>
+  <% if @questions.empty? %>
+  Таких вопросов не существует на сайте!
+  <% else %>
+    <% @questions.each_with_index do |question, i| %>
+      Вопрос для
+      <%= link_to "@#{question.user.username}", user_path(question.user) %>
+      <%= link_to "(перейти к вопросу)", "#{user_path(question.user)}#question_#{question.id}" %>
+      <%= render partial: 'questions/question', locals: { question: question, question_counter: i } %>
+    <% end %>
+  <% end %>
 </div>
