@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_101439) do
     t.integer "hashtag_id", null: false
     t.integer "question_id", null: false
     t.index ["hashtag_id", "question_id"], name: "index_hashtags_questions_on_hashtag_id_and_question_id"
+    t.index ["question_id"], name: "index_hashtags_questions_on_question_id"
   end
 
   create_table "likes", force: :cascade do |t|
