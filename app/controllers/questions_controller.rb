@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
     @question.author = current_user
 
     if check_captcha(@question) && @question.save
-      redirect_to(user_path(@question.user), notice: 'Вопрос задан')
+      redirect_to(user_path(@question.user), notice: I18n.t('controllers.questions.created'))
     else
       render :edit
     end
@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   def update
     if @question.update(question_params)
-      redirect_to(user_path(@question.user), notice: 'Вопрос сохранён')
+      redirect_to(user_path(@question.user), notice: I18n.t('controllers.questions.updated'))
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
   def destroy
     user = @question.user
     @question.destroy
-    redirect_to(user_path(user), notice: 'Вопрос удалён')
+    redirect_to(user_path(user), notice: I18n.t('controllers.questions.destroyed'))
   end
 
   private

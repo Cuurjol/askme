@@ -1,0 +1,140 @@
+ru:
+  app:
+    name: 'Хорошие вопросы'
+
+  layouts:
+    user_menu:
+      sign_up: 'Зарегистрироваться'
+      log_in: 'Войти'
+      log_out: 'Выйти'
+
+  questions:
+    form:
+      save: 'Сохранить'
+      alt: ' или '
+      back: 'вернуться'
+
+    question:
+      anonymous: 'Гость сайта'
+      confirm_destroy: 'Точно удалить вопрос?'
+      like: 'Лайк'
+      dislike: 'Дизлайк'
+      question_number: 'Вопрос №%{count}'
+      link:
+        name: 'Ссылка'
+        copy: 'Скопировать ссылку на вопрос в буфер обмена'
+        copied: 'Скопировано: %{link}'
+      likes:
+        one: '%{count} Лайк'
+        few: '%{count} Лайка'
+        many: '%{count} Лайков'
+        other: '%{count} Лайков'
+
+    hashtag_question:
+      empty: 'Таких вопросов не существует на сайте!'
+      question_for: 'Вопрос для '
+      go_to_question: '(перейти к вопросу)'
+
+  sessions:
+    new:
+      title: 'Войти на сайт'
+      form:
+        email: 'Логин (email)'
+        password: 'Пароль'
+        sign_in: 'Войти'
+
+  hashtags:
+    show:
+      questions_with_tag: 'Вопросы с хэштегом: '
+
+  users:
+    edit:
+      title: 'Править профиль'
+      form:
+        password_change: 'Если не хотите менять пароль - оставьте эти поля пустыми!'
+        new_password: 'Новый пароль'
+        new_password_confirmation: 'Новый пароль ещё раз'
+        save: 'Сохранить'
+        destroy: 'Удалить аккаунт'
+        confirm_destroy: 'Вы уверены, что хотите удалить свой аккаунт?'
+
+    index:
+      users_title: 'Наши пользователи'
+      hashtags_title: 'Наши хэштеги'
+
+    new:
+      title: 'Присоединяйся к нам!'
+      form:
+        register: 'Зарегистрироваться'
+
+    show:
+      edit: 'Редактировать профиль'
+      ask_me: 'Спроси меня'
+      form:
+        for: 'Ваш вопрос для'
+        ask: 'Задать вопрос'
+      question:
+        one: 'вопрос'
+        few: 'вопроса'
+        many: 'вопросов'
+        other: 'вопросов'
+      answer:
+        one: 'ответ'
+        few: 'ответа'
+        many: 'ответов'
+        other: 'ответов'
+      unanswered:
+        one: 'безответный'
+        few: 'безответных'
+        many: 'безответных'
+        other: 'безответных'
+
+  controllers:
+    app:
+      access_denied: 'В доступе отказано'
+    questions:
+      created: 'Вопрос задан'
+      updated: 'Вопрос изменён'
+      destroyed: 'Вопрос удалён'
+    sessions:
+      created: 'Вы успешно вошли в систему!'
+      create_error: 'Неправильный email или пароль'
+      destroyed: 'Вы вышли из системы. Приходите к нам ещё!'
+    users:
+      created: 'Пользователь успешно зарегистрирован!'
+      updated: 'Ваш профиль успешно обновлён!'
+      destroyed: 'Ваш профиль успешно удалён!'
+      already_logged_in: 'Вы уже вошли в систему!'
+    likes:
+      created: 'Лайк успешно поставлен'
+      destroyed: 'Лайк успешно удалён'
+      already_liked: 'Вы не можете поставить лайк более одного раза'
+      register: 'Зарегистрируйтесь на сайте, чтобы ставить лайки к вопросам'
+
+  activerecord:
+    models:
+      user: 'Пользователь'
+      question: 'Вопрос'
+
+    attributes:
+      user:
+        email: 'Логин (email)'
+        username: 'Никнейм'
+        name: 'Имя'
+        avatar_url: 'URL вашей аватарки'
+        theme_color: 'Цвет фона'
+        password: 'Пароль'
+        password_confirmation: 'Пароль ещё раз'
+
+      question:
+        text: 'Вопрос'
+        answer: 'Ответ'
+
+  errors:
+    attributes:
+      username:
+        invalid: 'может содержать только латинские буквы, цифры и знак подчеркивания'
+
+  recaptcha:
+    errors:
+      verification_failed: "Пожалуйста, подтвердите, что вы не робот"

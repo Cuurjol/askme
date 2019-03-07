@@ -13,6 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
+//= require i18n/translations
 //= require_tree .
 
 $(function(){
@@ -33,13 +34,13 @@ $(function(){
         document.body.removeChild(copyText);
 
         const tooltip = $("span#" + id);
-        tooltip[0].innerHTML = "Copied: " + copyText.value;
+        tooltip[0].innerHTML = I18n.t('questions.question.link.copied', { link: copyText.value });
     });
 
     $('.copy-question-link-to-clipboard').mouseout(function () {
         const id = $(this)[0].id;
         const tooltip = $("span#" + id);
-        tooltip[0].innerHTML = "Copy question link to clipboard";
+        tooltip[0].innerHTML = I18n.t('questions.question.link.copy');
     });
 });
 

@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-
   end
 
   def create
@@ -8,15 +7,15 @@ class SessionsController < ApplicationController
 
     if @user.present?
       session[:user_id] = @user.id
-      redirect_to(root_url, notice: 'Вы успешно залогинились!')
+      redirect_to(root_url, notice: I18n.t('controllers.sessions.created'))
     else
-      flash.now.alert = 'Неправильный email или пароль!'
+      flash.now.alert = I18n.t('controllers.sessions.create_error')
       render('new')
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to(root_url, notice: 'Вы разлогинились! Приходите ещё!')
+    redirect_to(root_url, notice: I18n.t('controllers.sessions.destroyed'))
   end
 end

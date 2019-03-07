@@ -18,15 +18,15 @@
       <div class="question-likes">
         <% pre_like = question.likes.find { |like| like.user_id == current_user.id} if current_user.present? %>
 
-        <p><%= question.likes.count %> <%= (question.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+        <p><%= t('.likes', count: question.likes.count) %></p>
 
         <% if pre_like %>
           <%= button_to question_like_path(question, pre_like), method: :delete do %>
-            Dislike <%= fa_icon('heart') %>
+            <%= t('.dislike') %> <%= fa_icon('heart') %>
           <% end %>
         <% else %>
           <%= button_to question_likes_path(question), method: :post do %>
-            Like <%= fa_icon('heart-o') %>
+            <%= t('.like') %> <%= fa_icon('heart-o') %>
           <% end %>
         <% end %>
       </div>
@@ -35,7 +35,7 @@
           <% if question.author.present? %>
             <%= link_to_unless_current "@#{question.author.username}", user_path(question.author) %>
           <% else %>
-            <p>Гость сайта</p>
+            <p><%= t('.anonymous') %></p>
           <% end %>
         </div>
         <div class="question-date">
@@ -43,11 +43,11 @@
         </div>
       </div>
       <div class="question-link">
-        Вопрос №<%= question_number %>
+        <%= t('.question_number', count: question_number) %>
         <div class="tooltip">
           <button class="copy-question-link-to-clipboard" id="number-<%= question_number %>" data-link="<%= question_link %>">
-            <span class="tooltip-text" id="number-<%= question_number %>">Copy question link to clipboard</span>
-            Ссылка <%= fa_icon('external-link') %>
+            <%= content_tag(:span, t('.link.copy'), class: 'tooltip-text', id: "number-#{question_number}") %>
+            <%= t('.link.name') %> <%= fa_icon('external-link') %>
           </button>
         </div>
       </div>
@@ -60,7 +60,7 @@
     <div class="question-actions">
       <%= link_to fa_icon(edit_icon), edit_question_path(question) %>
       <%= link_to fa_icon('trash-o'), question_path(question),
-                  method: :delete, data: { confirm: 'Точно удалить вопрос?' } %>
+                  method: :delete, data: { confirm: t('.confirm_destroy') } %>
     </div>
   <% end %>
 </div>

@@ -1,11 +1,11 @@
 <div class="hashtag-question">
   <% if @questions.empty? %>
-  Таких вопросов не существует на сайте!
+    <%= t('.empty') %>
   <% else %>
     <% @questions.each_with_index do |question, i| %>
-      Вопрос для
+      <%= t('.question_for') %>
       <%= link_to "@#{question.user.username}", user_path(question.user) %>
-      <%= link_to "(перейти к вопросу)", "#{user_path(question.user)}#question_#{question.id}" %>
+      <%= link_to t('.go_to_question'), "#{user_path(question.user)}#question_#{question.id}" %>
       <%= render partial: 'questions/question', locals: { question: question, question_counter: i } %>
     <% end %>
   <% end %>

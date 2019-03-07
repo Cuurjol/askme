@@ -1,4 +1,6 @@
 class HashtagsController < ApplicationController
+  # https://www.youtube.com/watch?v=oPpigFAlLmE
+
   before_action :set_hashtag, only: [:show]
 
   # GET /hashtags/hashtag_name

@@ -1,33 +1,132 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  app:
+    name: 'Good questions'
+
+  layouts:
+    user_menu:
+      sign_up: 'Sign Up'
+      log_in: 'Sign In'
+      log_out: 'Log Out'
+
+  questions:
+    form:
+      save: 'Save'
+      alt: ' or '
+      back: 'back'
+
+    question:
+      anonymous: 'Guest of site'
+      confirm_destroy: 'Are you sure you want to delete this question?'
+      like: 'Like'
+      dislike: 'Dislike'
+      question_number: 'Question №%{count}'
+      link:
+        name: 'Link'
+        copy: 'Copy question link to clipboard'
+        copied: 'Copied: %{link}'
+      likes:
+        one: '%{count} Like'
+        other: '%{count} Likes'
+
+    hashtag_question:
+      empty: 'There are no such questions on the site!'
+      question_for: 'Question for '
+      go_to_question: '(go to question)'
+
+  sessions:
+    new:
+      title: 'Sign In'
+      form:
+        email: 'Login (email)'
+        password: 'Password'
+        sign_in: 'Sign In'
+
+  hashtags:
+    show:
+      questions_with_tag: 'Questions with hashtag: '
+
+  users:
+    edit:
+      title: 'Edit profile'
+      form:
+        password_change: 'Leave fields blank to keep your current password'
+        new_password: 'New password'
+        new_password_confirmation: 'Confirm new password'
+        save: 'Save'
+        destroy: 'Delete my account'
+        confirm_destroy: 'Are you sure you want to delete you account?'
+
+    index:
+      users_title: 'Our users'
+      hashtags_title: 'Our hashtags'
+
+    new:
+      title: 'Join us!'
+      form:
+        register: 'Register now'
+
+    show:
+      edit: 'Edit profile'
+      ask_me: 'Ask me'
+      form:
+        for: 'Your question for'
+        ask: 'Ask question'
+      question:
+        one: 'question'
+        other: 'questions'
+      answer:
+        one: 'answer'
+        other: 'answers'
+      unanswered:
+        one: 'unanswered'
+        other: 'unanswered'
+
+  controllers:
+    app:
+      access_denied: 'Access denied'
+    questions:
+      created: 'Question added'
+      updated: 'Question updated'
+      destroyed: 'Question deleted'
+    sessions:
+      created: 'Signed in successfully!'
+      create_error: 'Invalid email or password'
+      destroyed: 'You are logged out. Come to us again!'
+    users:
+      created: 'User successfully registered!'
+      updated: 'Your profile successfully updated!'
+      destroyed: 'Your profile successfully deleted!'
+      already_logged_in: 'You are already signed in!'
+    likes:
+      created: 'Like successfully added'
+      destroyed: 'Like successfully deleted'
+      already_liked: 'You cannot like more than once'
+      register: 'Register on the site to like questions.'
+
+  activerecord:
+    models:
+      user: 'User'
+      question: 'Question'
+
+    attributes:
+      user:
+        email: 'Login (email)'
+        username: 'Username'
+        name: 'Name'
+        avatar_url: 'Your Avatar URL'
+        theme_color: 'Background color'
+        password: 'Password'
+        password_confirmation: 'Confirm password'
+
+      question:
+        text: 'Question'
+        answer: 'Answer'
+
+  errors:
+    attributes:
+      username:
+        invalid: 'may include only latin letters, digits or underscores'
+
+  recaptcha:
+    errors:
+      verification_failed: "Please, confirm that you're a human"

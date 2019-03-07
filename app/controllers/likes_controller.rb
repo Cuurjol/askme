@@ -1,22 +1,21 @@
 class LikesController < ApplicationController
+  # https://medium.com/full-taxx/how-to-add-likes-to-posts-in-rails-e81430101bc2
+  # https://codereview.stackexchange.com/questions/154930/rails-like-and-unlike-posts
+  # https://stackoverflow.com/questions/11945487/how-do-you-model-likes-in-rails
+
   before_action :find_question
   before_action :set_like, only: [:destroy]
-
-  # GET /likes
-  def index
-    @likes = Like.all
-  end
 
   # POST /likes
   def create
     user = User.find(@question.user.id)
 
     if current_user.nil?
-      flash[:notice] = 'Зарегистрируйтесь на сайте, чтобы ставить лайки к вопросам'
+      flash[:notice] = I18n.t('controllers.likes.register')
     elsif already_liked?
-      flash[:notice] = 'Вы не можете поставить лайк более одного раза'
+      flash[:notice] = I18n.t('controllers.likes.already_liked')
     else
-      flash[:notice] = 'Лайк успешно поставлен'
+      flash[:notice] = I18n.t('controllers.likes.created')
       @question.likes.create(user_id: current_user.id)
     end
 
@@ -25,14 +24,9 @@ class LikesController < ApplicationController
 
   # DELETE /likes/1
   def destroy
-    if already_liked?
-      @like.destroy
-      flash[:notice] = 'Лайк успешно снят'
-    else
-      flash[:notice] = 'Не можете снять лайк'
-    end
-
+    @like.destroy
     user = User.find(@question.user.id)
+    flash[:notice] = I18n.t('controllers.likes.destroyed')
     redirect_back(fallback_location: user_path(user))
   end
 

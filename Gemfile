@@ -3,17 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-gem 'rails_12factor'
-gem 'uglifier'
-gem 'jquery-rails'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1'
-# Use Puma as the app server
-gem 'puma', '~> 3.11'
-# Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
+gem 'i18n-js'
+gem 'jquery-rails'
+gem 'puma', '~> 3.11'
+gem 'rails', '~> 5.2.1'
+gem 'rails-i18n'
+gem 'rails_12factor'
 gem 'recaptcha', require: 'recaptcha/rails'
+gem 'uglifier'
 
 group :production do
   gem 'pg'
@@ -28,8 +26,8 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
