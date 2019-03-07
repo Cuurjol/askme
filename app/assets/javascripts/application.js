@@ -23,9 +23,9 @@ $(function(){
     });
 
     $('.copy-question-link-to-clipboard').click(function () {
-        var id = $(this)[0].id;
-        var copyText = document.createElement('input');
-        var text = $(this).data('link');
+        const id = $(this)[0].id;
+        const copyText = document.createElement('input');
+        const text = $(this).data('link');
 
         document.body.appendChild(copyText);
         copyText.value = text;
@@ -33,13 +33,13 @@ $(function(){
         document.execCommand('copy');
         document.body.removeChild(copyText);
 
-        var tooltip = $("span#" + id);
+        const tooltip = $("span#" + id);
         tooltip[0].innerHTML = I18n.t('questions.question.link.copied', { link: copyText.value });
     });
 
     $('.copy-question-link-to-clipboard').mouseout(function () {
-        var id = $(this)[0].id;
-        var tooltip = $("span#" + id);
+        const id = $(this)[0].id;
+        const tooltip = $("span#" + id);
         tooltip[0].innerHTML = I18n.t('questions.question.link.copy');
     });
 });
