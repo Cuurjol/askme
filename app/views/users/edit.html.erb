@@ -2,6 +2,20 @@
   <h1 class="title-medium"><%= t('.title') %></h1>
 
   <div class="column-1-2">
+    <div class="user-header text-center buffer-bottom" style="background-color: <%= user_bg_color(@user) %>; color: <%= user_text_color(@user) %>;">
+      <h1 class="title-medium" id="user_name_sandbox">
+        <%= @user.name %>
+      </h1>
+
+      <div class="user-image-div" style="border-color: <%= user_border_color(@user) %>;">
+        <%= image_tag(user_avatar(@user), class: 'user-image', id: 'user_avatar_url_sandbox', alt: "@#{@user.username}") %>
+      </div>
+
+      <h2 class="title-small buffer-both" id="user_nickname_sandbox">
+        @<%= @user.username %>
+      </h2>
+    </div>
+
     <%= form_for(@user) do |f| %>
       <% if @user.errors.any? %>
         <div class="form-errors">
@@ -28,9 +42,26 @@
         <%= f.text_field :avatar_url, class: 'form-text-field' %>
       </div>
 
+      <%= f.label t('.form.color_preferences'), class: 'form-label' %>
       <div class="form-field">
-        <%= f.label :theme_color, class: 'form-label' %>
-        <%= f.color_field :theme_color %>
+        <%= f.label :avatar_bg_color, class: 'form-label-color' %>
+        <%= f.color_field :avatar_bg_color, value: "#{user_bg_color(@user)}", class: 'form-color-field' %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :avatar_border_color, class: 'form-label-color' %>
+        <%= f.color_field :avatar_border_color, value: "#{user_border_color(@user)}", class: 'form-color-field' %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :profile_text_color, class: 'form-label-color' %>
+        <%= f.color_field :profile_text_color, value: "#{user_text_color(@user)}", class: 'form-color-field' %>
+      </div>
+
+      <div class="form-field">
+        <button id="user_reset_colors" class="button button-small button-dark">
+          <%= t('.form.reset_colors') %>
+        </button>
       </div>
 
       <div class="buffer-top-large buffer-bottom">

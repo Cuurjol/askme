@@ -17,4 +17,16 @@ module ApplicationHelper
     regexp = /(?:\s|^)#(?!(?:[[:digit:]]+|[[:alpha:]]+?_|_[[:alpha:]]+?)(?:\s|$))([[:alnum:]]+(?:_[[:alnum:]]+)*)(?=\s|$)/
     text.gsub(regexp) { |word| link_to(word, hashtag_path(word.strip.delete('#')), class: 'hashtag-link') }.html_safe
   end
+
+  def user_bg_color(user)
+    user.avatar_bg_color || '#005a55'
+  end
+
+  def user_border_color(user)
+    user.avatar_border_color || '#00b6ad'
+  end
+
+  def user_text_color(user)
+    user.profile_text_color || '#ffffff'
+  end
 end

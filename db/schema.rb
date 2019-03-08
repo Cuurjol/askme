@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_101439) do
+ActiveRecord::Schema.define(version: 2019_03_08_101100) do
 
   create_table "hashtags", force: :cascade do |t|
     t.string "name"
@@ -54,7 +54,9 @@ ActiveRecord::Schema.define(version: 2019_02_25_101439) do
     t.string "password_hash"
     t.string "password_salt"
     t.string "avatar_url"
-    t.string "theme_color", default: "#005a55"
+    t.string "avatar_bg_color"
+    t.string "avatar_border_color"
+    t.string "profile_text_color"
   end
 
 end

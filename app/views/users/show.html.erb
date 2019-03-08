@@ -1,13 +1,15 @@
-<div class="user-header text-center" style="background-color: <%= @user.theme_color %>">
+<div class="user-header text-center" style="background-color: <%= user_bg_color(@user) %>; color: <%= user_text_color(@user) %>;">
   <h1 class="title-medium">
     <%= @user.name %>
   </h1>
 
-  <div class="buffer-both">
-    <%= link_to t('.edit'), edit_user_path(@user) if current_user == @user %>
-  </div>
+  <% if current_user == @user %>
+    <div class="buffer-both">
+      <%= link_to t('.edit'), edit_user_path(@user), style: "color: #{user_text_color(@user)}" %>
+    </div>
+  <% end %>
 
-  <div class="user-image-div">
+  <div class="user-image-div" style="border-color: <%= user_border_color(@user) %>;">
     <%= image_tag(user_avatar(@user), class: 'user-image', alt: "@#{@user.username}") %>
   </div>
 
