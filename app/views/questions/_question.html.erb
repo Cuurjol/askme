@@ -1,6 +1,6 @@
 <% questions_block_id = "question_#{question.id}" %>
 <% question_number = @questions.size - question_counter %>
-<% question_link = request.base_url + "#{user_path(question.user)}#question_#{question.id}" %>
+<% question_link = request.base_url + "#{user_path(question.user)}#q#{question.id}" %>
 
 <div id="<%= questions_block_id %>" class="question">
   <div class="question-content">
