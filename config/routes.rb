@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'users#index'
-  resources :users
+  resources :users, param: :username do
+    get 'best', on: :member
+  end
   resources :questions, except: [:show, :new, :index] do
     resources :likes, only: [:create, :destroy]
   end

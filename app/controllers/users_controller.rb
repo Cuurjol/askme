@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :load_user, except: [:index, :new, :create]
-  before_action :authorize_user, except: [:index, :new, :create, :show]
+  before_action :authorize_user, except: [:index, :new, :create, :show, :best]
 
   def index
     @users = User.all
@@ -49,6 +49,16 @@ class UsersController < ApplicationController
     @unanswered_count = @questions_count - @answers_count
   end
 
+  def best
+    @questions = @user.questions.joins(:likes).distinct.order(created_at: :desc)
+    @new_question = @user.questions.build
+    @questions_count = @questions.count
+    @answers_count = @questions.where.not(answer: nil).count
+    @unanswered_count = @questions_count - @answers_count
+
+    render('users/show')
+  end
+
   private
 
   def authorize_user
@@ -56,7 +66,7 @@ class UsersController < ApplicationController
   end
 
   def load_user
-    @user ||= User.find(params[:id])
+    @user ||= User.find_by(username: params[:username])
   end
 
   def user_params

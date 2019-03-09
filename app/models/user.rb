@@ -25,6 +25,10 @@ class User < ApplicationRecord
   before_validation :check_username
   before_save :encrypt_password
 
+  def to_param
+    username
+  end
+
   def check_username
     self.username = username.downcase if username.present?
   end
