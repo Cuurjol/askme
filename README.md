@@ -30,12 +30,6 @@ After, go to the browser at `http://localhost:3000`.
 
 You can watch a list of all used gems in the `Gemfile`.
 
-## Technical debt
-
-List of technical debts which will be added soon in the application:
-* To add hashtags feature.
-* To delete the old version of ReCaptcha, to add the last version of Recapthca (`Invisible Recapthca`).
-
 ## Heroku deployment
 
 Study project is ready for deployment on the Heroku. The working version of the project can be viewed at [`Heroku website`](https://cuurjol-askme.herokuapp.com/).
