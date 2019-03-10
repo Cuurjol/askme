@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'data_migrate'
 gem 'i18n-js'
 gem 'jquery-rails'
 gem 'puma', '~> 3.11'

@@ -1,0 +1,32 @@
+<div class="user-questions buffer-both">
+  <div class="questions-list">
+    <div class="liked-question">
+      <%= t('.question_for') %>
+      <%= link_to "@#{@question.user.username}", user_path(@question.user) %>
+      <%= render partial: 'questions/question', locals: { question: @question, question_counter: 1 } %>
+    </div>
+  </div>
+</div>
+
+<div class="like-header buffer-both">
+  <h2 class="title-medium"><%= t('.title') %></h2>
+</div>
+
+<div class="content-wrapper buffer-both">
+  <% if @users.empty? %>
+    <div class="like-empty-users-title">
+      <%= t('.empty') %>
+    </div>
+  <% else %>
+    <div class="text-center">
+      <% @users.each do |user| %>
+        <div class="users-list-item">
+          <div class="user-image-div user-image-div-small">
+            <%= link_to image_tag(user_avatar(user), class: 'user-image'), user_path(user) %>
+          </div>
+          <span class="user-label-name"><%= link_to user.username, user_path(user) %></span>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

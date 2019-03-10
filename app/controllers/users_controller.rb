@@ -42,16 +42,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @questions = @user.questions.order(created_at: :desc)
     @new_question = @user.questions.build
+    @questions = @user.questions.order(created_at: :desc)
     @questions_count = @questions.count
     @answers_count = @questions.where.not(answer: nil).count
     @unanswered_count = @questions_count - @answers_count
   end
 
   def best
-    @questions = @user.questions.joins(:likes).distinct.order(created_at: :desc)
     @new_question = @user.questions.build
+    @questions = @user.questions.joins(:likes).distinct.order('likes_count desc')
     @questions_count = @questions.count
     @answers_count = @questions.where.not(answer: nil).count
     @unanswered_count = @questions_count - @answers_count

@@ -63,6 +63,16 @@
 </div>
 
 <div class="column-3-4">
+  <div class="user-filter-bar buffer-top">
+    <% if request.params[:action] == 'show' %>
+      <%= link_to t('.latest'), user_path(@user), class: 'active' %>
+      <%= link_to t('.top'), best_user_path(@user) %>
+    <% else %>
+      <%= link_to t('.latest'), user_path(@user) %>
+      <%= link_to t('.top'), best_user_path(@user), class: 'active' %>
+    <% end %>
+  </div>
+
   <div class="user-questions buffer-both">
     <div class="questions-list">
       <%= render partial: 'questions/question', collection: @questions %>

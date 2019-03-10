@@ -50,6 +50,8 @@ GEM
     byebug (11.0.0)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
+    data_migrate (5.3.1)
+      rails (>= 4.2)
     email_address (0.1.11)
       netaddr (~> 2.0)
       simpleidn
@@ -166,6 +168,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
+  data_migrate
   email_address
   i18n-js
   jquery-rails

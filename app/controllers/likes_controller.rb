@@ -6,6 +6,11 @@ class LikesController < ApplicationController
   before_action :find_question
   before_action :set_like, only: [:destroy]
 
+  # GET /likes
+  def index
+    @users = User.find(@question.likes.map(&:user_id))
+  end
+
   # POST /likes
   def create
     user = User.find(@question.user.id)

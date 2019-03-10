@@ -1,5 +1,5 @@
 <% questions_block_id = "question_#{question.id}" %>
-<% question_number = @questions.size - question_counter %>
+<% question_number = @questions.nil? ? question_counter : @questions.size - question_counter %>
 <% question_link = request.base_url + "#{user_path(question.user)}#q#{question.id}" %>
 
 <div id="<%= questions_block_id %>" class="question">
@@ -18,7 +18,7 @@
       <div class="question-likes">
         <% pre_like = question.likes.find { |like| like.user_id == current_user.id} if current_user.present? %>
 
-        <p><%= t('.likes', count: question.likes.count) %></p>
+        <%= link_to t('.likes', count: question.likes.count), question_likes_path(question), method: :get %>
 
         <% if pre_like %>
           <%= button_to question_like_path(question, pre_like), method: :delete do %>

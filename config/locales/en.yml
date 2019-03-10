@@ -29,7 +29,7 @@ en:
         other: '%{count} Likes'
 
     hashtag_question:
-      empty: 'There are no such questions on the site!'
+      empty: 'There are no such questions on the site'
       question_for: 'Question for '
       go_to_question: '(go to question)'
 
@@ -70,6 +70,8 @@ en:
     show:
       edit: 'Edit profile'
       ask_me: 'Ask me'
+      latest: 'Latest'
+      top: 'Top'
       form:
         for: 'Your question for'
         ask: 'Ask question'
@@ -82,6 +84,12 @@ en:
       unanswered:
         one: 'unanswered'
         other: 'unanswered'
+
+  likes:
+    index:
+      title: 'Liked by'
+      question_for: 'Question for '
+      empty: 'None of the users liked the question'
 
   controllers:
     app:

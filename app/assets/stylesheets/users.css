@@ -16,7 +16,7 @@
   width: 100px;
   height: 100px;
   margin: 0 auto;
-  border: 5px solid #00b6ad;
+  border: 5px solid #00948a;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -34,14 +34,17 @@
 
 .user-label-name {
   padding: 1px 9px 2px;
-  font-size: 12.025px;
+  font-size: 12px;
   font-weight: bold;
   white-space: nowrap;
-  color: #ffffff;
   background-color: #00948a;
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   border-radius: 9px;
+}
+
+.user-label-name a {
+  color: white;
 }
 
 .user-details {
@@ -53,6 +56,33 @@
   padding-top: 10px;
   margin-top: 10px;
   border-top: 1px solid #D9E6E5;
+}
+
+.user-filter-bar {
+  display: table;
+  table-layout: fixed;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 7px;
+  background-color: transparent;
+  border: solid 1px #fff;
+  overflow: hidden;
+}
+
+.user-filter-bar a {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 22px;
+  padding: 4px 3px 3px;
+  color: #fff;
+}
+
+.user-filter-bar a.active {
+  color: #2e2f41;
+  background-color: #fff;
 }
 
 .user-questions {

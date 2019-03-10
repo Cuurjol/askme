@@ -1,0 +1,13 @@
+.like-header {
+  padding: 10px;
+  background: #005a55;
+  color: white;
+}
+
+.like-empty-users-title {
+  padding: 10px 0;
+}
+
+.liked-question {
+  padding: 10px;
+}
