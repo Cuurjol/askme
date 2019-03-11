@@ -1,4 +1,6 @@
 class Question < ApplicationRecord
+  REGEXP = (/(?:\s|^)#(?!(?:[[:digit:]]+|[[:alpha:]]+?_|_[[:alpha:]]+?)(?:\s|$))([[:alnum:]]+(?:_[[:alnum:]]+)*)(?=\s|$)/).freeze
+
   belongs_to :user
   belongs_to :author, class_name: 'User', optional: true
   has_many :likes, dependent: :destroy
@@ -7,24 +9,20 @@ class Question < ApplicationRecord
   validates :user, presence: true
   validates :text, presence: true, length: { maximum: 255 }
 
-  after_create do
-    regexp = /(?:\s|^)#(?!(?:[[:digit:]]+|[[:alpha:]]+?_|_[[:alpha:]]+?)(?:\s|$))([[:alnum:]]+(?:_[[:alnum:]]+)*)(?=\s|$)/
-    question = Question.find(id)
-    hashtags_array = text.scan(regexp).flatten.map(&:downcase).uniq
-
-    create_hashtags_for_question(question, hashtags_array)
-  end
-
-  before_update do
-    regexp = /(?:\s|^)#(?!(?:[[:digit:]]+|[[:alpha:]]+?_|_[[:alpha:]]+?)(?:\s|$))([[:alnum:]]+(?:_[[:alnum:]]+)*)(?=\s|$)/
-    question = Question.find(id)
-    question.hashtags.clear
-    hashtags_array = (text.scan(regexp).flatten + answer.scan(regexp).flatten).map(&:downcase).uniq
-
-    create_hashtags_for_question(question, hashtags_array)
-  end
+  before_save :check_hashtags
 
   private
+
+  def check_hashtags
+    if hashtags.empty?
+      hashtags_array = text.scan(REGEXP).flatten.map(&:downcase).uniq
+    else
+      hashtags.clear
+      hashtags_array = (text.scan(REGEXP).flatten + answer.scan(REGEXP).flatten).map(&:downcase).uniq
+    end
+
+    create_hashtags_for_question(self, hashtags_array)
+  end
 
   def create_hashtags_for_question(question, hashtags_array)
     hashtags_array.map do |item|
