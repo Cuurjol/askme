@@ -14,13 +14,8 @@ class Question < ApplicationRecord
   private
 
   def check_hashtags
-    if hashtags.empty?
-      hashtags_array = text.scan(REGEXP).flatten.map(&:downcase).uniq
-    else
-      hashtags.clear
-      hashtags_array = (text.scan(REGEXP).flatten + answer.scan(REGEXP).flatten).map(&:downcase).uniq
-    end
-
+    hashtags.clear unless hashtags.empty?
+    hashtags_array = (text.scan(REGEXP).flatten + answer.scan(REGEXP).flatten).map(&:downcase).uniq
     create_hashtags_for_question(self, hashtags_array)
   end
 
