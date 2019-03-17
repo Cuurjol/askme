@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-  REGEXP = (/(?:\s|^)#(?!(?:[[:digit:]]+|[[:alpha:]]+?_|_[[:alpha:]]+?)(?:\s|$))([[:alnum:]]+(?:_[[:alnum:]]+)*)(?=\s|$)/).freeze
+  REGEXP = (/(?:\s|^)#(?!(?:[[:digit:]]+|[[:alnum:]]+_|_[[:alnum:]]+)(?:\s|$))([[:alnum:]]+(?:_[[:alnum:]]+)*)(?=\s|$)/).freeze
 
   belongs_to :user
   belongs_to :author, class_name: 'User', optional: true
