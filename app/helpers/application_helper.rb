@@ -3,7 +3,11 @@ module ApplicationHelper
     if user.avatar_url.present?
       user.avatar_url
     else
-      asset_path('avatar.png')
+      case user.gender
+      when t('users.show.user.gender')[0] then asset_path('female.png')
+      when t('users.show.user.gender')[1] then asset_path('male.png')
+      else asset_path('avatar.png')
+      end
     end
   end
 

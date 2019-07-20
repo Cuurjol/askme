@@ -11,7 +11,6 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { maximum: 40 }, format: { with: /\A[0-9a-z_]+\z/i }
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@(?:[-a-z0-9]+\.)+[a-z]{2,}\z/i}
   validates :avatar_bg_color, :avatar_border_color, :profile_text_color, format: { with: /\A#[\h]{6}\z/ }, allow_nil: true
-  validates :gender, presence: true
 
   # Второй способ валидации почты пользователя с помощью gem email_address
   # https://github.com/afair/email_address

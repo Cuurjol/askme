@@ -17,33 +17,33 @@
 //= require_tree .
 
 $(function(){
-    $('#ask-button').click(function(){
-        $('#ask-form').slideToggle(300);
-        return false;
-    });
+  $('#ask-button').click(function(){
+    $('#ask-form').slideToggle(300);
+    return false;
+  });
 
-    $('.copy-question-link-to-clipboard').click(function () {
-        const id = $(this)[0].id;
-        const copyText = document.createElement('input');
-        const text = $(this).data('link');
+  $('.copy-question-link-to-clipboard').click(function () {
+    const id = $(this)[0].id;
+    const copyText = document.createElement('input');
+    const text = $(this).data('link');
 
-        document.body.appendChild(copyText);
-        copyText.value = text;
-        copyText.select();
-        document.execCommand('copy');
-        document.body.removeChild(copyText);
+    document.body.appendChild(copyText);
+    copyText.value = text;
+    copyText.select();
+    document.execCommand('copy');
+    document.body.removeChild(copyText);
 
-        const tooltip = $("span#" + id);
-        tooltip[0].innerHTML = I18n.t('questions.question.link.copied', { link: copyText.value });
-    });
+    const tooltip = $("span#" + id);
+    tooltip[0].innerHTML = I18n.t('questions.question.link.copied', { link: copyText.value });
+  });
 
-    $('.copy-question-link-to-clipboard').mouseout(function () {
-        const id = $(this)[0].id;
-        const tooltip = $("span#" + id);
-        tooltip[0].innerHTML = I18n.t('questions.question.link.copy');
-    });
+  $('.copy-question-link-to-clipboard').mouseout(function () {
+    const id = $(this)[0].id;
+    const tooltip = $("span#" + id);
+    tooltip[0].innerHTML = I18n.t('questions.question.link.copy');
+  });
 });
 
 var submitInvisibleRecaptchaForm = function () {
-    $("#invisible-recaptcha-form").submit();
+  $("#invisible-recaptcha-form").submit();
 };

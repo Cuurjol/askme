@@ -90,6 +90,10 @@ en:
       unanswered:
         one: 'unanswered'
         other: 'unanswered'
+      user:
+        gender:
+          - 'Female'
+          - 'Male'
 
   likes:
     index:
