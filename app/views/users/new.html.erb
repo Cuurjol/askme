@@ -29,6 +29,11 @@
       </div>
 
       <div class="form-field">
+        <%= f.label :gender, class: 'form-label' %>
+        <%= f.select :gender, t('.form.gender'), { include_blank: true }, class: 'form-select-field' %>
+      </div>
+
+      <div class="form-field">
         <%= f.label :password, class: 'form-label' %>
         <%= f.password_field :password, class: 'form-text-field' %>
       </div>

@@ -52,6 +52,10 @@ GEM
     crass (1.0.4)
     data_migrate (5.3.1)
       rails (>= 4.2)
+    dotenv (2.7.4)
+    dotenv-rails (2.7.4)
+      dotenv (= 2.7.4)
+      railties (>= 3.2, < 6.1)
     email_address (0.1.11)
       netaddr (~> 2.0)
       simpleidn
@@ -169,6 +173,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   data_migrate
+  dotenv-rails
   email_address
   i18n-js
   jquery-rails
@@ -188,4 +193,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.17.1
+   1.17.3

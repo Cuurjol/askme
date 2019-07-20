@@ -59,6 +59,9 @@ ru:
         confirm_destroy: 'Вы уверены, что хотите удалить свой аккаунт?'
         color_preferences: 'Настройка цветов профиля'
         reset_colors: 'Вернуть цвета по умолчанию'
+        gender:
+          - 'Женщина'
+          - 'Мужчина'
 
     index:
       users_title: 'Наши пользователи'
@@ -68,6 +71,9 @@ ru:
       title: 'Присоединяйся к нам!'
       form:
         register: 'Зарегистрироваться'
+        gender:
+          - 'Женщина'
+          - 'Мужчина'
 
     show:
       edit: 'Редактировать профиль'
@@ -131,6 +137,7 @@ ru:
         email: 'Логин (email)'
         username: 'Никнейм'
         name: 'Имя'
+        gender: 'Пол'
         avatar_url: 'URL вашей аватарки'
         avatar_bg_color: 'Цвет фона'
         avatar_border_color: 'Цвет рамки'

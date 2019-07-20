@@ -57,6 +57,9 @@ en:
         confirm_destroy: 'Are you sure you want to delete you account?'
         color_preferences: 'Profile colors setting'
         reset_colors: 'Reset to default colors'
+        gender:
+          - 'Female'
+          - 'Male'
 
     index:
       users_title: 'Our users'
@@ -66,6 +69,9 @@ en:
       title: 'Join us!'
       form:
         register: 'Register now'
+        gender:
+          - 'Female'
+          - 'Male'
 
     show:
       edit: 'Edit profile'
@@ -123,6 +129,7 @@ en:
         email: 'Login (email)'
         username: 'Username'
         name: 'Name'
+        gender: 'Gender'
         avatar_url: 'Your Avatar URL'
         avatar_bg_color: 'Background color'
         avatar_border_color: 'Border color'
