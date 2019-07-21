@@ -122,8 +122,6 @@ en:
       destroyed: 'Your profile successfully deleted!'
       already_logged_in: 'You are already signed in!'
     likes:
-      created: 'Like successfully added'
-      destroyed: 'Like successfully deleted'
       already_liked: 'You cannot like more than once'
       register: 'Register on the site to like questions.'
 

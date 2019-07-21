@@ -13,8 +13,21 @@ class LikesController < ApplicationController
 
   # POST /likes
   def create
-    @user = User.find(@question.user.id)
-    @question.likes.create(user_id: current_user.id)
+    user = User.find(@question.user.id)
+
+    respond_to do |format|
+      format.html do
+        if current_user.nil?
+          flash[:notice] = I18n.t('controllers.likes.register')
+          redirect_back(fallback_location: user_path(user))
+        elsif already_liked?
+          flash[:notice] = I18n.t('controllers.likes.already_liked')
+          redirect_back(fallback_location: user_path(user))
+        end
+      end
+
+      format.js { @question.likes.create(user_id: current_user.id) }
+    end
   end
 
   # DELETE /likes/1
