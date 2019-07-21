@@ -1,0 +1,2 @@
+$("#question_<%= @question.id %> .question-content .question-additional-information .question-likes")
+    .html("<%= j(render(partial: 'questions/button_and_counter_for_likes', locals: { question: @question })) %>")

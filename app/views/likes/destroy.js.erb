@@ -1,0 +1,12 @@
+<% if request.referer == best_user_url(@user.username) && @question_likes_count.zero? %>
+  $('.user-statistics').html("<%= j(render(partial: 'users/user_statistics', locals:
+    {
+      questions_count: @questions_count,
+      answers_count: @answers_count,
+      unanswered_count: @unanswered_count
+     })) %>");
+  $("#question_<%= @question.id %>").remove();
+<% else %>
+  $("#question_<%= @question.id %> .question-content .question-additional-information .question-likes")
+    .html("<%= j(render(partial: 'questions/button_and_counter_for_likes', locals: { question: @question })) %>");
+<% end %>

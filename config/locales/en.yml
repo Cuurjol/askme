@@ -17,13 +17,15 @@ en:
     question:
       anonymous: 'Guest of site'
       confirm_destroy: 'Are you sure you want to delete this question?'
-      like: 'Like'
-      dislike: 'Dislike'
       question_number: 'Question №%{count}'
       link:
         name: 'Link'
         copy: 'Copy question link to clipboard'
         copied: 'Copied: %{link}'
+
+    button_and_counter_for_likes:
+      like: 'Like'
+      dislike: 'Dislike'
       likes:
         one: '%{count} Like'
         other: '%{count} Likes'
@@ -81,6 +83,12 @@ en:
       form:
         for: 'Your question for'
         ask: 'Ask question'
+      user:
+        gender:
+          - 'Female'
+          - 'Male'
+
+    user_statistics:
       question:
         one: 'question'
         other: 'questions'
@@ -90,10 +98,6 @@ en:
       unanswered:
         one: 'unanswered'
         other: 'unanswered'
-      user:
-        gender:
-          - 'Female'
-          - 'Male'
 
   likes:
     index:

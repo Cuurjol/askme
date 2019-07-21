@@ -13,26 +13,21 @@ class LikesController < ApplicationController
 
   # POST /likes
   def create
-    user = User.find(@question.user.id)
-
-    if current_user.nil?
-      flash[:notice] = I18n.t('controllers.likes.register')
-    elsif already_liked?
-      flash[:notice] = I18n.t('controllers.likes.already_liked')
-    else
-      flash[:notice] = I18n.t('controllers.likes.created')
-      @question.likes.create(user_id: current_user.id)
-    end
-
-    redirect_back(fallback_location: user_path(user))
+    @user = User.find(@question.user.id)
+    @question.likes.create(user_id: current_user.id)
   end
 
   # DELETE /likes/1
   def destroy
     @like.destroy
-    user = User.find(@question.user.id)
-    flash[:notice] = I18n.t('controllers.likes.destroyed')
-    redirect_back(fallback_location: user_path(user))
+    @user = User.find(@question.user.id)
+    @question_likes_count = @question.likes.count
+
+    if @question_likes_count.zero?
+      @questions_count = @user.questions.joins(:likes).where.not(questions: { id: @question.id }).count
+      @answers_count = @user.questions.joins(:likes).where.not(questions: { id: @question.id, answer: nil }).count
+      @unanswered_count = @questions_count - @answers_count
+    end
   end
 
   private

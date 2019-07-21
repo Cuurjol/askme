@@ -17,13 +17,15 @@ ru:
     question:
       anonymous: 'Гость сайта'
       confirm_destroy: 'Точно удалить вопрос?'
-      like: 'Лайк'
-      dislike: 'Дизлайк'
       question_number: 'Вопрос №%{count}'
       link:
         name: 'Ссылка'
         copy: 'Скопировать ссылку на вопрос в буфер обмена'
         copied: 'Скопировано: %{link}'
+
+    button_and_counter_for_likes:
+      like: 'Лайк'
+      dislike: 'Дизлайк'
       likes:
         one: '%{count} Лайк'
         few: '%{count} Лайка'
@@ -83,6 +85,12 @@ ru:
       form:
         for: 'Ваш вопрос для'
         ask: 'Задать вопрос'
+      user:
+        gender:
+          - 'Женщина'
+          - 'Мужчина'
+
+    user_statistics:
       question:
         one: 'вопрос'
         few: 'вопроса'
@@ -98,10 +106,6 @@ ru:
         few: 'безответных'
         many: 'безответных'
         other: 'безответных'
-      user:
-        gender:
-          - 'Женщина'
-          - 'Мужчина'
 
   likes:
     index:

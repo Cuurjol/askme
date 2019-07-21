@@ -16,19 +16,7 @@
 
     <div class="question-additional-information">
       <div class="question-likes">
-        <% pre_like = question.likes.find { |like| like.user_id == current_user.id} if current_user.present? %>
-
-        <%= link_to t('.likes', count: question.likes.count), question_likes_path(question), method: :get %>
-
-        <% if pre_like %>
-          <%= button_to question_like_path(question, pre_like), method: :delete do %>
-            <%= t('.dislike') %> <%= fa_icon('heart') %>
-          <% end %>
-        <% else %>
-          <%= button_to question_likes_path(question), method: :post do %>
-            <%= t('.like') %> <%= fa_icon('heart-o') %>
-          <% end %>
-        <% end %>
+        <%= render partial: 'questions/button_and_counter_for_likes', locals: { question: question } %>
       </div>
       <div class="question-date-author-content">
         <div class="question-author">
