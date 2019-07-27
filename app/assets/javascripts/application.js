@@ -17,9 +17,9 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('#ask-button').click(function(){
-    $('#ask-form').slideToggle(300);
+    $('#ask-form').slideToggle(400);
     return false;
   });
 
