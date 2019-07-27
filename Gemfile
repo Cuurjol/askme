@@ -13,6 +13,7 @@ gem 'rails-i18n'
 gem 'rails_12factor'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'uglifier'
+gem 'turbolinks', '~> 5.2.0'
 
 group :production do
   gem 'pg'

@@ -1,3 +1,4 @@
+Turbolinks.clearCache();
 <% if request.referer == best_user_url(@user.username) && @question_likes_count.zero? %>
   $('.user-statistics').html("<%= j(render(partial: 'users/user_statistics', locals:
     {
