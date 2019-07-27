@@ -38,6 +38,7 @@ $(document).on('turbolinks:load', function(){
     if ($('#user_avatar_url').val() === "") {
       $('#user_avatar_url_sandbox').attr('src', user_default_avatar_url($(this).val()));
     }
+    $('#user_gender_sandbox').text($(this).val());
   });
 
   $('#user_avatar_url').on('input', function(){
