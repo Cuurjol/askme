@@ -3,11 +3,11 @@
 <%= link_to t('.likes', count: question.likes.count), question_likes_path(question), method: :get %>
 
 <% if pre_like %>
-  <%= button_to question_like_path(question, pre_like), method: :delete, remote: current_user.present? do %>
+  <%= button_to question_like_path(question, pre_like), class: 'button button-small button-dark', method: :delete, remote: current_user.present? do %>
     <%= t('.dislike') %> <%= fa_icon('heart') %>
   <% end %>
 <% else %>
-  <%= button_to question_likes_path(question), method: :post, remote: current_user.present? do %>
+  <%= button_to question_likes_path(question), class: 'button button-small button-dark', method: :post, remote: current_user.present? do %>
     <%= t('.like') %> <%= fa_icon('heart-o') %>
   <% end %>
 <% end %>

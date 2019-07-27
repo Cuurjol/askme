@@ -33,7 +33,7 @@
       <div class="question-link">
         <%= t('.question_number', count: question_number) %>
         <div class="tooltip">
-          <button class="copy-question-link-to-clipboard" id="number-<%= question_number %>" data-link="<%= question_link %>">
+          <button class="copy-question-link-to-clipboard button button-small button-dark" id="number-<%= question_number %>" data-link="<%= question_link %>">
             <%= content_tag(:span, t('.link.copy'), class: 'tooltip-text', id: "number-#{question_number}") %>
             <%= t('.link.name') %> <%= fa_icon('external-link') %>
           </button>
